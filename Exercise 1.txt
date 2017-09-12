@@ -1,0 +1,88 @@
+Inheritance is when a class takes properties from another class.
+The sub class inherits from the super class.
+Example 1:
+
+public class Animal{
+	boolean moves;
+	String eats;
+	
+	public Animal(){
+	
+	}
+	
+	public Animal(boolean movement, String food){
+		this.moves = movement;
+		this.eats = food;
+	}
+	
+	public boolean getMoves(){
+		return moves;
+	}
+	
+	public void setMoves(boolean movement){
+		this.moves=movement;
+	}	
+	
+	public String getEats(){
+		return eats;
+	}
+	
+	public void setEats(String food){
+		this.eats=food;
+	}	
+}
+
+public class Dog extends Animal{
+	String breed;
+	
+	public Dog(boolean movement, String food, String type){
+		super(movement, food);
+		this.breed = type;
+	}
+	
+	public String getBreed(){
+		return breed;
+	}
+	
+	public void setBreed(String type){
+		this.breed = type;
+	}
+}
+
+The Dog class inherits the properties of animal by using the Animal constructor.
+
+Polymorphism is when an object uses methods from another object's class. Using the example above, and object created in the Dog class can use the get and set methods in Animal and Dog because the object is both an animal and a dog.
+
+Encapsulation hides information from outside classes. An encapsulated class can change the types of variables within itself without outside classes having to change any code. The variables of an encapsulated class are accessed using get and set methods.
+
+An abstract class cannot be instantiated, it can only be used by other classes that inherit from it.
+Example 2:
+public abstract class Animal{
+	private boolean moves;
+	private String eats;
+	
+	public Animal(boolean movement, String food){
+		this.moves = movement;
+		this.eats = food;
+	
+	public abstract boolean getMoves();
+}
+
+public class Dog extends Animal{
+	private String breed;
+	
+	public Dog(boolean movement, String food, String type){
+		super(movement, food);
+		this.breed = type;
+	}
+
+	public boolean getMoves(){
+	return this.moves;
+	}
+
+}
+
+getMoves is an abstract method. The Dog class must either implement getMoves or be an abstract class, with a subclass that implements getMoves.
+
+
+
